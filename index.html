@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Interface</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f6f9;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:#1f2937;
+    color:white;
+    transition:.3s;
+    overflow-y:auto;
+}
+
+.sidebar.hide{
+    width:70px;
+}
+
+.logo{
+    text-align:center;
+    padding:20px;
+    font-size:22px;
+    font-weight:bold;
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    padding:15px 20px;
+    cursor:pointer;
+}
+
+.menu li:hover{
+    background:#374151;
+}
+
+.dropdown{
+    display:none;
+    background:#2d3748;
+}
+
+.dropdown li{
+    padding-left:40px;
+    font-size:14px;
+}
+
+.active{
+    display:block;
+}
+
+/* Main */
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+/* Top */
+
+.topbar{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.toggle-btn{
+    padding:10px 15px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.search-box{
+    display:flex;
+    flex:1;
+}
+
+.search-box input{
+    flex:1;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px 0 0 5px;
+}
+
+.search-box button{
+    padding:10px 20px;
+    border:none;
+    background:#10b981;
+    color:white;
+    border-radius:0 5px 5px 0;
+    cursor:pointer;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+</style>
+
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+
+<div class="logo">MENU</div>
+
+<ul class="menu">
+
+<li onclick="toggleDropdown()">
+📁 Records ▼
+</li>
+
+<ul class="dropdown" id="dropdown">
+<li>Students</li>
+<li>Teachers</li>
+<li>Subjects</li>
+<li>Reports</li>
+</ul>
+
+<li>🏠 Dashboard</li>
+<li>👤 Profile</li>
+<li>⚙ Settings</li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<button class="toggle-btn" onclick="toggleSidebar()">
+☰
+</button>
+
+<div class="search-box">
+<input type="text" placeholder="Search...">
+<button>Search</button>
+</div>
+
+</div>
+
+<div class="card">
+<h2>Welcome</h2>
+<p>This is your dashboard interface.</p>
+</div>
+
+</div>
+
+<script>
+
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("hide");
+}
+
+function toggleDropdown(){
+    document.getElementById("dropdown").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>
